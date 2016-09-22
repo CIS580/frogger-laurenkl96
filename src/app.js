@@ -8,6 +8,7 @@ const Player = require('./player.js');
 var canvas = document.getElementById('screen');
 var game = new Game(canvas, update, render);
 var player = new Player({x: 0, y: 240})
+var car1 = new Car1(x: 80, y: canvas.width);
 
 /**
  * @function masterLoop
