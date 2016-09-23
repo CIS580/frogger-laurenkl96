@@ -13,9 +13,9 @@ function Car1(position) {
     this.x = position.x;
     this.y = position.y;
     this. width = 64;
-    this.height = 128;
+    this.heigth = 128;
     this.img = new Image();
-    this.img.src = encodeURI('assets/Audi.png');
+    this.img.src = encodeURI('assets/Car.png');
 }
 
 
@@ -25,10 +25,6 @@ Car1.prototype.update = function(time){
             this.timer += time;
             this.y -= 1;
         break;
-        case "drive-lvl2":
-            this.timer += time;
-            this.y -= 2;
-        break;
     }
     
 
@@ -36,23 +32,11 @@ Car1.prototype.update = function(time){
 
 Car1.prototype.render = function(time,ctx){
     switch(this.state){
-        case "drive-lvl1":
-        ctx.drawImage(
-            this.img,
-        // source Image
-             70, 20, 110, 220,
-        // destination rectangle
-            this.x, this.y, this.width, this.height
-            );
-        break;
-        case "drive-lvl2":
-        ctx.drawImage(
-            this.img,
-        // source Image
-             70, 20, 110, 220,
-        // destination rectangle
-            this.x, this.y, this.width, this.height
-            );
+        case "float-lvl1":
+        ctx.fillStyle = "brown";
+        ctx.fillRect(this.x, this.y, 80, 128);
         break;
     }
+    ctx.strokeStyle = this.color;
+    ctx.strokeRect(this.x, this.y, this.width, this.height);
 }
